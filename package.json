@@ -1,7 +1,7 @@
 {
-  "name": "react-native-newrelic-agent",
+  "name": "@abeman/react-native-newrelic-agent",
   "version": "0.1.0",
-  "description": "Newrelic lib for react native",
+  "description": "New relic module for react native IOS and Android app",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -143,5 +143,8 @@
         }
       ]
     ]
+  },
+  "dependencies": {
+    "stacktrace-parser": "^0.1.10"
   }
 }

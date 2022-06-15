@@ -1,0 +1,12 @@
+//
+//  PrefixHeader.pch
+//  NewrelicAgentExample
+//
+//  Created by Mac on 15/06/2022.
+//
+
+#ifdef __OBJC__
+
+#import <NewRelic/NewRelic.h>
+
+#endif
