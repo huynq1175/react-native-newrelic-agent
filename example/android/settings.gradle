@@ -1,0 +1,6 @@
+rootProject.name = 'NewrelicAgentExample'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+
+include ':reactnativenewrelicagent'
+project(':reactnativenewrelicagent').projectDir = new File(rootProject.projectDir, '../../android')
