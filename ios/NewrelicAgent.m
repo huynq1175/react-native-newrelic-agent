@@ -1,6 +1,6 @@
 #import "NewrelicAgent.h"
-#import "RCTConvert.h"
-#import "RCTExceptionsManager.h"
+#import <React/RCTConvert.h>
+#import <React/RCTExceptionsManager.h>
 
 @implementation NewrelicAgent
 
@@ -66,7 +66,7 @@ RCT_EXPORT_METHOD(recordMetric:(NSString *)category name:(NSString *)name attrs:
         NSNumber *value = attrs[@"totalValue"];
         NRMetricUnit *vUnits = attrs[@"valueUnit"];
         NRMetricUnit *cUnits = attrs[@"countUnit"];
-        
+
         [NewRelic recordMetricWithName:(NSString * _Nonnull)name category:(NSString * _Nonnull)category value:(NSNumber * _Nonnull)value valueUnits:(NRMetricUnit * _Nullable)vUnits countUnits:(NRMetricUnit * _Nullable)cUnits];        resolve(@true);
     } @catch (NSException *exception) {
         [NewRelic recordHandledException:exception];
@@ -187,11 +187,11 @@ RCT_EXPORT_METHOD(noticeNetworkRequest:(NSString *)url dict:(NSDictionary *)dict
         NSUInteger bytesSent = [RCTConvert NSUInteger:dict[@"bytesSent"]];
         NSUInteger bytesReceived = [RCTConvert NSUInteger:dict[@"bytesReceived"]];
         NSDictionary *params = [RCTConvert NSDictionary:dict[@"params"]];
-        
+
         NSData *jsonBody = [dict[@"responseBody"] dataUsingEncoding:NSUTF8StringEncoding];
-        
+
         NRTimer *timer = [NRTimer new];
-        
+
         [NewRelic noticeNetworkRequestForURL:(NSURL * _Null_unspecified)requestUrl httpMethod:(NSString * _Null_unspecified)method withTimer:(NRTimer * _Null_unspecified)timer responseHeaders:(NSDictionary * _Null_unspecified)headers statusCode:(NSInteger)statusCode bytesSent:(NSUInteger)bytesSent bytesReceived:(NSUInteger)bytesReceived responseData:(NSData * _Null_unspecified)jsonBody andParams:(NSDictionary * _Nullable)params];
         resolve(@true);
     } @catch (NSException *exception) {
@@ -224,7 +224,7 @@ RCT_EXPORT_METHOD(recordHandledException:(NSDictionary *)jsError attributes:(NSD
 {
     @try {
         NSError* e = [self pareJSErrorToNSException:jsError];
-        
+
         [NewRelic recordHandledException:(NSException * _Nonnull)e withAttributes:(NSDictionary * _Nullable)attributes];
         resolve(@true);
     } @catch (NSException *exception) {
@@ -239,7 +239,7 @@ RCT_EXPORT_METHOD(recordHandledException:(NSDictionary *)jsError attributes:(NSD
     NSString *description = [@"Uncaught JS Exception: " stringByAppendingString:message];
     NSDictionary *errorInfo = @{NSLocalizedDescriptionKey : description, RCTJSStackTraceKey : stack};
     NSError *error = [NSError errorWithDomain:RCTErrorDomain code:0 userInfo:errorInfo];
-    
+
     return error;
 }
 
