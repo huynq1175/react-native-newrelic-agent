@@ -42,7 +42,7 @@ yarn add @bibabovn/react-native-newrelic
       }
       dependencies {
         ...
-        classpath "com.newrelic.agent.android:agent-gradle-plugin:5.+"
+        classpath "com.newrelic.agent.android:agent-gradle-plugin:6.+"
       }
     }
   ```
@@ -54,7 +54,7 @@ yarn add @bibabovn/react-native-newrelic
     ...
     dependencies {
       ...
-      implementation "com.newrelic.agent.android:android-agent:5.+"
+      implementation "com.newrelic.agent.android:android-agent:6.+"
     }
   ```
 - Update the app's `MainApplication.java` file (./android/app/src/main/java/'{package}/MainApplication.java')
