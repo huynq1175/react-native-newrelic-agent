@@ -23,7 +23,7 @@
 ## Installation
 - Yarn
 ```sh
-yarn add @bibabovn/react-native-newrelic
+yarn add @abeman/react-native-newrelic-agent
 ```
 - React native autolink package
 - Don't forget to run:
