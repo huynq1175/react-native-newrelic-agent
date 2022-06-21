@@ -224,8 +224,7 @@ RCT_EXPORT_METHOD(recordHandledException:(NSDictionary *)jsError attributes:(NSD
 {
     @try {
         NSError* e = [self pareJSErrorToNSException:jsError];
-
-        [NewRelic recordHandledException:(NSException * _Nonnull)e withAttributes:(NSDictionary * _Nullable)attributes];
+        [NewRelic recordError:e attributes:attributes];
         resolve(@true);
     } @catch (NSException *exception) {
         [NewRelic recordHandledException:exception];
