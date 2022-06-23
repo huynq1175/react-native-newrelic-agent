@@ -1,7 +1,7 @@
 buildscript {
   // Buildscript is evaluated before everything else so we can't use getExtOrDefault
   def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['NewrelicAgent_kotlinVersion']
-  def newrelic_version = rootProject.ext.has('newrelicVersion') ? rootProject.ext.get('newrelicVersion') : project.properties['NewrelicAgent_kotlinVersion']
+  def newrelic_version = rootProject.ext.has('newrelicVersion') ? rootProject.ext.get('newrelicVersion') : project.properties['NewrelicAgent_newrelicVersion']
 
   repositories {
     google()
