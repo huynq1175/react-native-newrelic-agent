@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,mm}"
 
   s.dependency "React-Core"
-  s.dependency "NewRelicAgent"
+  s.dependency "NewRelicAgent", "6.14.0"
 end

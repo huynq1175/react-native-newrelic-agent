@@ -207,7 +207,6 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				C1D60D28B925C94BD88E79D7 /* [CP] Copy Pods Resources */,
-				48359E79A3A6D070F0B8DC2B /* [CP] Embed Pods Frameworks */,
 				0459F447285A1CEF00F3EAAB /* ShellScript */,
 			);
 			buildRules = (
@@ -382,24 +381,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
-		};
-		48359E79A3A6D070F0B8DC2B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NewrelicAgentExample/Pods-NewrelicAgentExample-frameworks.sh",
-				"${PODS_XCFRAMEWORKS_BUILD_DIR}/NewRelicAgent/NewRelic.framework/NewRelic",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NewRelic.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewrelicAgentExample/Pods-NewrelicAgentExample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		4F0A6FC082772762E3E4C96C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
