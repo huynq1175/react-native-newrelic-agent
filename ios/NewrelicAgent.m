@@ -67,7 +67,12 @@ RCT_EXPORT_METHOD(recordMetric:(NSString *)category name:(NSString *)name attrs:
         NRMetricUnit *vUnits = attrs[@"valueUnit"];
         NRMetricUnit *cUnits = attrs[@"countUnit"];
 
-        [NewRelic recordMetricWithName:(NSString * _Nonnull)name category:(NSString * _Nonnull)category value:(NSNumber * _Nonnull)value valueUnits:(NRMetricUnit * _Nullable)vUnits countUnits:(NRMetricUnit * _Nullable)cUnits];        resolve(@true);
+        [NewRelic recordMetricWithName:(NSString * _Nonnull)name
+                              category:(NSString * _Nonnull)category
+                                 value:(NSNumber * _Nonnull)value
+                            valueUnits:(NRMetricUnit * _Nullable)vUnits
+                            countUnits:(NRMetricUnit * _Nullable)cUnits];
+        resolve(@true);
     } @catch (NSException *exception) {
         [NewRelic recordHandledException:exception];
         reject([exception name], [exception reason], nil);
@@ -166,7 +171,9 @@ RCT_EXPORT_METHOD(recordBreadcrumb:(NSString *)name attributes:(NSDictionary *)a
  */
 RCT_EXPORT_METHOD(recordCustomEvent:(NSString *)eventType eventName:(NSString *)eventName attrs:(NSDictionary *)attrs resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
     @try {
-        [NewRelic recordCustomEvent:(NSString * _Nonnull)eventType name:(NSString * _Nullable)eventName attributes:(NSDictionary * _Nullable)attrs];
+        [NewRelic recordCustomEvent:(NSString * _Nonnull)eventType
+                               name:(NSString * _Nullable)eventName
+                         attributes:(NSDictionary * _Nullable)attrs];
         resolve(@true);
     } @catch (NSException *exception) {
         [NewRelic recordHandledException:exception];
@@ -192,7 +199,17 @@ RCT_EXPORT_METHOD(noticeNetworkRequest:(NSString *)url dict:(NSDictionary *)dict
 
         NRTimer *timer = [NRTimer new];
 
-        [NewRelic noticeNetworkRequestForURL:(NSURL * _Null_unspecified)requestUrl httpMethod:(NSString * _Null_unspecified)method withTimer:(NRTimer * _Null_unspecified)timer responseHeaders:(NSDictionary * _Null_unspecified)headers statusCode:(NSInteger)statusCode bytesSent:(NSUInteger)bytesSent bytesReceived:(NSUInteger)bytesReceived responseData:(NSData * _Null_unspecified)jsonBody andParams:(NSDictionary * _Nullable)params];
+        [NewRelic noticeNetworkRequestForURL:(NSURL * _Null_unspecified)requestUrl
+                                  httpMethod:(NSString * _Null_unspecified)method
+                                   withTimer:(NRTimer * _Null_unspecified)timer
+                             responseHeaders:(NSDictionary * _Null_unspecified)headers
+                                  statusCode:(NSInteger)statusCode
+                                   bytesSent:(NSUInteger)bytesSent
+                               bytesReceived:(NSUInteger)bytesReceived
+                                responseData:(NSData * _Null_unspecified)jsonBody
+                                traceHeaders:(NSDictionary<NSString *,NSString *> * _Nullable)NULL
+                                   andParams:(NSDictionary * _Nullable)params];
+
         resolve(@true);
     } @catch (NSException *exception) {
         [NewRelic recordHandledException:exception];
@@ -209,7 +226,10 @@ RCT_EXPORT_METHOD(noticeNetworkFailure:(NSString *)url dict:(NSDictionary *)dict
         NSString *method = [RCTConvert NSString:dict[@"httpMethod"]];
         NSInteger statusCode = [RCTConvert NSInteger:dict[@"statusCode"]];
         NRTimer *timer = [NRTimer new];
-        [NewRelic noticeNetworkFailureForURL:(NSURL * _Null_unspecified)requestUrl httpMethod:(NSString * _Null_unspecified)method withTimer:(NRTimer * _Null_unspecified)timer andFailureCode:(NSInteger)statusCode];
+        [NewRelic noticeNetworkFailureForURL:(NSURL * _Null_unspecified)requestUrl
+                                  httpMethod:(NSString * _Null_unspecified)method
+                                   withTimer:(NRTimer * _Null_unspecified)timer
+                              andFailureCode:(NSInteger)statusCode];
         resolve(@true);
     } @catch (NSException *exception) {
         [NewRelic recordHandledException:exception];
